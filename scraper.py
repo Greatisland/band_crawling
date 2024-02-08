@@ -41,6 +41,7 @@ def band_scrapping():
         login_page = 'https://band.us/home'
         driver.get(login_page)
         print('Navigated to login page.')
+        driver.save_screenshot('process_screenshot.png')
 
         login_selector = '#container > div > div.sloganArea > div > div._signupRegion > div > div > div.buttonBox > a.button._loginBtn'
 
