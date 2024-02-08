@@ -28,6 +28,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -35,8 +36,10 @@ from firebase_admin import db
 import datetime
 import pyperclip
 
+
 # Selenium 설정
-options = Options()
+chrome_service = Service(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())
+chrome_options = Options()
 options = [
     "--headless",
     "--disable-gpu",
@@ -46,8 +49,9 @@ options = [
     "--no-sandbox",
     "--disable-dev-shm-usage"
 ]
-# options.headless = False  # 브라우저 숨김 여부
-driver = webdriver.Chrome(options=options)
+for option in options:
+    chrome_options.add_argument(option)
+driver = webdriver.Chrome(service=chrome_service, options=chrome_options)
 
 def band_scrapping():
     try:
