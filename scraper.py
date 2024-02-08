@@ -97,9 +97,9 @@ def band_scrapping():
         # email_input.send_keys(Keys.RETURN)
 
         # 패스워드 입력
-        # pass_selector = '#pw'
+        pass_selector = '#pw'
         # pyperclip.copy(PW)
-        # password_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, pass_selector)))
+        password_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, pass_selector)))
         # password_input.send_keys(Keys.CONTROL, 'v')
         # password_input.send_keys(PW)
 
