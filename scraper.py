@@ -107,7 +107,7 @@ def band_scrapping():
         driver.execute_script("document.getElementById('id').value = '{ID}';")
 
         # 비밀번호 입력 필드에 값을 설정
-        driver.execute_script("document.getElementById('password').value = '{PW}';")
+        driver.execute_script("document.getElementById('pw').value = '{PW}';")
 
         # Enter 키를 눌러 로그인 시도
         password_input.send_keys(Keys.RETURN)
