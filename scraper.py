@@ -62,7 +62,7 @@ def band_scrapping():
         PW = 'vmfkdlajfl4!'
 
         # 로그인 페이지로 이동
-        login_page = 'https://auth.band.us/email_login?keep_login=false'
+        # login_page = 'https://auth.band.us/email_login?keep_login=false'
         login_page = 'https://nid.naver.com/oauth2.0/authorize?svctype=0&response_type=code&client_id=C9hwybENgOtF&state=W37LXQI34N2UV3SA27GOOCNGDBCILHLC3ECDKSI7N2FDHBUVMJOHS4YYFLGRTDYA7JENYLO7PAQLQ===&redirect_url=https%3A%2F%2Fauth.band.us%2Fexternal_account_login%3Ftype%3Dnaver'
         driver.get(login_page)
         print('Navigated to login page.')
