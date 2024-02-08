@@ -102,6 +102,21 @@ def band_scrapping():
         print(repr(e))
         driver.save_screenshot('error_screenshot.png')
     finally:
+        # Include screenshots in the GitHub Actions workflow logs
+        with open('process_screenshot.png', 'rb') as file:
+            print('##[group]Process Screenshot')
+            print('![Process Screenshot](data:image/png;base64,' + base64.b64encode(file.read()).decode('utf-8') + ')')
+            print('##[endgroup]')
+
+        with open('success_screenshot.png', 'rb') as file:
+            print('##[group]Success Screenshot')
+            print('![Success Screenshot](data:image/png;base64,' + base64.b64encode(file.read()).decode('utf-8') + ')')
+            print('##[endgroup]')
+
+        with open('error_screenshot.png', 'rb') as file:
+            print('##[group]Error Screenshot')
+            print('![Error Screenshot](data:image/png;base64,' + base64.b64encode(file.read()).decode('utf-8') + ')')
+            print('##[endgroup]')
         driver.quit()
 
 if __name__ == "__main__":
