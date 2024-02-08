@@ -87,21 +87,27 @@ def band_scrapping():
 
         # 이메일 입력
         # email_selector = '#input_email'
-        email_selector = '#id'
-        pyperclip.copy(ID)
-        email_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, email_selector)))
-        email_input.send_keys(Keys.CONTROL, 'v')
+        # email_selector = '#id'
+        # pyperclip.copy(ID)
+        # email_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, email_selector)))
+        # email_input.send_keys(Keys.CONTROL, 'v')
         # email_input.send_keys(ID)
 
         # Enter 키를 눌러 다음 필드로 진행
         # email_input.send_keys(Keys.RETURN)
 
         # 패스워드 입력
-        pass_selector = '#pw'
-        pyperclip.copy(PW)
-        password_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, pass_selector)))
-        password_input.send_keys(Keys.CONTROL, 'v')
+        # pass_selector = '#pw'
+        # pyperclip.copy(PW)
+        # password_input = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, pass_selector)))
+        # password_input.send_keys(Keys.CONTROL, 'v')
         # password_input.send_keys(PW)
+
+        # ID 입력 필드에 값을 설정
+        driver.execute_script("document.getElementById('id').value = '{ID}';")
+
+        # 비밀번호 입력 필드에 값을 설정
+        driver.execute_script("document.getElementById('password').value = '{PW}';")
 
         # Enter 키를 눌러 로그인 시도
         password_input.send_keys(Keys.RETURN)
