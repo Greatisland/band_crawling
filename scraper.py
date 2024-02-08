@@ -9,7 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from firebase_admin import db
 import datetime
-import pyperclip
+import base64
 
 # Selenium 설정
 chrome_options = Options()
