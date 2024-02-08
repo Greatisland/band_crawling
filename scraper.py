@@ -9,13 +9,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from firebase_admin import db
 import datetime
-
+import pyperclip
 
 # Selenium 설정
 chrome_options = Options()
 options = [
-    "--headless",
-    "--disable-gpu",
+    # "--headless",
+    # "--disable-gpu",
     "--window-size=1920,1200",
     "--ignore-certificate-errors",
     "--disable-extensions",
@@ -47,6 +47,8 @@ def band_scrapping():
         login_btn = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, login_selector)))
 
         login_btn.click()
+        print('process 0')
+        driver.save_screenshot('process_screenshot.png')
 
         time.sleep(1)
 
@@ -55,6 +57,8 @@ def band_scrapping():
         naver_btn = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, naver_login_selector)))
 
         naver_btn.click()
+        print('process 1')
+        driver.save_screenshot('process_screenshot.png')
 
         time.sleep(1)
 
@@ -70,6 +74,8 @@ def band_scrapping():
 
         # # Enter 키를 눌러 로그인 시도
         password_input.send_keys(Keys.RETURN)
+        print('process 2')
+        driver.save_screenshot('process_screenshot.png')
 
         try:
             element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "span.btn_cancel")))
